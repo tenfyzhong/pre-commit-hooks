@@ -71,7 +71,7 @@ demock_git() {
 
 @test 'GIT_WORK_REMOTE is empty' {
     expect="env: GIT_PERSONAL_NAME / GIT_PERSONAL_EMAIL should not be empty"
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     [ "$output" = "$expect" ]
     [ "$status" -eq 3 ]
 }
@@ -79,9 +79,8 @@ demock_git() {
 @test 'GIT_WORK_REMOTE not match' {
     export GIT_WORK_REMOTE=gitlab.com
     mock_git --url google.com --name zhongtenghui --email zhongtenghui@gmail.com
-    run check-commit-user-name-email.sh
     expect="env: GIT_PERSONAL_NAME / GIT_PERSONAL_EMAIL should not be empty"
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     [ "$output" = "$expect" ]
     [ "$status" -eq 3 ]
     demock_git
@@ -90,9 +89,8 @@ demock_git() {
 @test 'GIT_WORK_NAME is empty' {
     export GIT_WORK_REMOTE=gitlab.com
     mock_git --url gitlab.com --name zhongtenghui --email zhongtenghui@gmail.com
-    run check-commit-user-name-email.sh
     expect="env: GIT_WORK_NAME / GIT_WORK_EMAIL should not be empty"
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     echo "GIT_WORK_REMOTE:$GIT_WORK_REMOTE"
     echo "GIT_WORK_NAME:$GIT_WORK_NAME"
     echo "GIT_WORK_EMAIL:$GIT_WORK_EMAIL"
@@ -107,9 +105,8 @@ demock_git() {
     export GIT_WORK_REMOTE=gitlab.com
     export GIT_WORK_NAME=zhongtenghui
     mock_git --url gitlab.com --name zhongtenghui --email zhongtenghui@gmail.com
-    run check-commit-user-name-email.sh
     expect="env: GIT_WORK_NAME / GIT_WORK_EMAIL should not be empty"
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     echo "GIT_WORK_REMOTE:$GIT_WORK_REMOTE"
     echo "GIT_WORK_NAME:$GIT_WORK_NAME"
     echo "GIT_WORK_EMAIL:$GIT_WORK_EMAIL"
@@ -125,14 +122,13 @@ demock_git() {
     export GIT_WORK_NAME=zhongtenghui
     export GIT_WORK_EMAIL=zhongtenghui@gmail.com
     mock_git --url gitlab.com --name tenfyzhong --email zhongtenghui@gmail.com
-    run check-commit-user-name-email.sh
     expect=$(cat <<"EOF"
 name/email should config to zhongtenghui/zhongtenghui@gmail.com
 run command:
   git config user.name zhongtenghui; git config user.email zhongtenghui@gmail.com
 EOF
 )
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     echo "GIT_WORK_REMOTE:$GIT_WORK_REMOTE"
     echo "GIT_WORK_NAME:$GIT_WORK_NAME"
     echo "GIT_WORK_EMAIL:$GIT_WORK_EMAIL"
@@ -149,14 +145,13 @@ EOF
     export GIT_WORK_NAME=zhongtenghui
     export GIT_WORK_EMAIL=zhongtenghui@gmail.com
     mock_git --url gitlab.com --name zhongtenghui --email tenfyzhong@gmail.com
-    run check-commit-user-name-email.sh
     expect=$(cat <<"EOF"
 name/email should config to zhongtenghui/zhongtenghui@gmail.com
 run command:
   git config user.name zhongtenghui; git config user.email zhongtenghui@gmail.com
 EOF
 )
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     echo "GIT_WORK_REMOTE:$GIT_WORK_REMOTE"
     echo "GIT_WORK_NAME:$GIT_WORK_NAME"
     echo "GIT_WORK_EMAIL:$GIT_WORK_EMAIL"
@@ -174,9 +169,8 @@ EOF
     export GIT_WORK_EMAIL=zhongtenghui@gmail.com
     mock_git --url github.com --name tenfyzhong --email tenfy@tenfy.cn
 
-    run check-commit-user-name-email.sh
     expect="env: GIT_PERSONAL_NAME / GIT_PERSONAL_EMAIL should not be empty"
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     [ "$output" = "$expect" ]
     [ "$status" -eq 3 ]
     demock_git
@@ -189,9 +183,8 @@ EOF
     export GIT_PERSONAL_NAME=tenfyzhong
     mock_git --url github.com --name tenfyzhong --email tenfy@tenfy.cn
 
-    run check-commit-user-name-email.sh
     expect="env: GIT_PERSONAL_NAME / GIT_PERSONAL_EMAIL should not be empty"
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     [ "$output" = "$expect" ]
     [ "$status" -eq 3 ]
     demock_git
@@ -204,14 +197,13 @@ EOF
     export GIT_PERSONAL_NAME=tenfyzhong
     export GIT_PERSONAL_EMAIL=tenfy@tenfy.cn
     mock_git --url github.com --name zhongtenghui --email tenfy@tenfy.cn
-    run check-commit-user-name-email.sh
     expect=$(cat <<"EOF"
 name/email should config to tenfyzhong/tenfy@tenfy.cn
 run command:
   git config user.name tenfyzhong; git config user.email tenfy@tenfy.cn
 EOF
 )
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     echo "GIT_WORK_REMOTE:$GIT_WORK_REMOTE"
     echo "GIT_WORK_NAME:$GIT_WORK_NAME"
     echo "GIT_WORK_EMAIL:$GIT_WORK_EMAIL"
@@ -230,14 +222,13 @@ EOF
     export GIT_PERSONAL_NAME=tenfyzhong
     export GIT_PERSONAL_EMAIL=tenfy@tenfy.cn
     mock_git --url github.com --name tenfyzhong --email zhongtenghui
-    run check-commit-user-name-email.sh
     expect=$(cat <<"EOF"
 name/email should config to tenfyzhong/tenfy@tenfy.cn
 run command:
   git config user.name tenfyzhong; git config user.email tenfy@tenfy.cn
 EOF
 )
-    run check-commit-user-name-email.sh
+    run ./check-commit-user-name-email.sh
     echo "GIT_WORK_REMOTE:$GIT_WORK_REMOTE"
     echo "GIT_WORK_NAME:$GIT_WORK_NAME"
     echo "GIT_WORK_EMAIL:$GIT_WORK_EMAIL"
