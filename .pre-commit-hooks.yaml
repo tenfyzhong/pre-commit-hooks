@@ -1,0 +1,6 @@
+- id: do-not-commit-swap-file
+  name: 'do not commit swap file'
+  entry: do-not-commit-swap-file.sh
+  files: '^\..*\.sw[a-zA-Z]$'
+  language: "script"
+  description: 'do not commit swap file, such as .foo.swp'
