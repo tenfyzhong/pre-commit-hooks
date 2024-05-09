@@ -1,0 +1,10 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test-bash:
+    name: Test bash
+    uses: tenfyzhong/workflows/.github/workflows/bats.yml@main
+    with:
+      test-glob: "tests/*.bats"
