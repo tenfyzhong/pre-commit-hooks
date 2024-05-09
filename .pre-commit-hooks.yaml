@@ -4,3 +4,10 @@
   files: '^\..*\.sw[a-zA-Z]$'
   language: "script"
   description: 'do not commit swap file, such as .foo.swp'
+- id: check-commit-user-name-email
+  name: 'check the commit user name and email'
+  entry: check-commit-user-name-email.sh
+  files: '^$'
+  language: "script"
+  always_run: true
+  description: 'check the commit user name and email match the origin or not'
