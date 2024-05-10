@@ -6,7 +6,7 @@ Some hooks for [pre-commit](https://pre-commit.com/).
 Add this to you .pre-commit-config.yaml
 ```yaml
 -   repo: https://github.com/tenfyzhong/pre-commit-hooks
-    rev: v0.1.0  # Use the ref you want to point at
+    rev: 0.1.0  # Use the ref you want to point at
     hooks:
     -   id: do-not-commit-swap-file
     # -   id: ...
