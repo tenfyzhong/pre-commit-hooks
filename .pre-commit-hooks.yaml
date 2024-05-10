@@ -1,9 +1,9 @@
-- id: do-not-commit-swap-file
-  name: 'do not commit swap file'
-  entry: do-not-commit-swap-file.sh
+- id: forbid-swap-file
+  name: 'forbid to commit swap file'
+  entry: forbid-swap-file.sh
   files: '^\..*\.sw[a-zA-Z]$'
   language: "script"
-  description: 'do not commit swap file, such as .foo.swp'
+  description: 'forbid to commit swap file, such as .foo.swp'
 - id: check-commit-user-name-email
   name: 'check the commit user name and email'
   entry: check-commit-user-name-email.sh

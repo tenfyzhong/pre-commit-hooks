@@ -8,14 +8,14 @@ Add this to you .pre-commit-config.yaml
 -   repo: https://github.com/tenfyzhong/pre-commit-hooks
     rev: 0.1.0  # Use the ref you want to point at
     hooks:
-    -   id: do-not-commit-swap-file
+    -   id: forbid-swap-file
     # -   id: ...
 ```
 
 ## Hooks available
-### `do-not-commit-swap-file`
+### `forbid-swap-file`
 Prevent swap files from being committed.
-A swap file is the editor backup file, the file name of it likes `.foo.swp`
+A swap file is a editor's backup file, the file name of it would likes `.foo.swp`
 
 
 ### `check-commit-user-name-email`
