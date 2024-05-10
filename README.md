@@ -26,3 +26,6 @@ You should set environment below first:
 - `GIT_WORK_EMAIL` the user email for the work remote
 - `GIT_PERSONAL_NAME` the default name not match the work remote
 - `GIT_PERSONAL_EMAIL` the default email not match the work remote
+
+### `forbid-binary`
+Prevent binary files from being commited

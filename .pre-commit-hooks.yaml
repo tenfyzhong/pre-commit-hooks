@@ -11,3 +11,8 @@
   language: "script"
   always_run: true
   description: 'check the commit user name and email match the origin or not'
+- id: forbid-binary
+  name: 'forbid to commit binary file'
+  entry: forbid-binary.sh
+  language: script
+  types: ['binary']
