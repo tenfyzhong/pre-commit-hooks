@@ -16,3 +16,10 @@
   entry: forbid-binary.sh
   language: script
   types: ['binary']
+- id: post-commit-to-sqlite3
+  name: 'post commit message to sqlite3'
+  entry: post-commit-to-sqlite3.sh
+  language: "script"
+  always_run: true
+  description: 'post commit message to sqlite3'
+  stages: ['post-commit']

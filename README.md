@@ -29,3 +29,7 @@ You should set environment below first:
 
 ### `forbid-binary`
 Prevent binary files from being commited
+
+### `post-commit-to-sqlite3`
+This is a hook for stage post-commit. It will dump the commit message to sqlite3 file which locate in `~/.local/state/commit-msg-log/[year].sqlite3`
+You can analyse your job by these db files.
