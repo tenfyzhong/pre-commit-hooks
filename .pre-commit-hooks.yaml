@@ -23,3 +23,10 @@
   always_run: true
   description: 'post commit message to sqlite3'
   stages: ['post-commit']
+- id: make-target
+  name: 'make target'
+  entry: make-target.sh
+  language: "script"
+  always_run: true
+  description: 'make target'
+  stages: ['pre-push']

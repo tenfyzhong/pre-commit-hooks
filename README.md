@@ -33,3 +33,13 @@ Prevent binary files from being commited
 ### `post-commit-to-sqlite3`
 This is a hook for stage post-commit. It will dump the commit message to sqlite3 file which locate in `~/.local/state/commit-msg-log/[year].sqlite3`
 You can analyse your job by these db files.
+
+### `make-target`
+Run make targets before pushing. The target names are passed as arguments to the hook.
+Add this to your .pre-commit-config.yaml:
+```yaml
+-   repo: https://github.com/tenfyzhong/pre-commit-hooks
+    rev: 0.1.0
+    hooks:
+    -   id: make-target
+        args: ['lint', 'test']  # The make targets you want to run
