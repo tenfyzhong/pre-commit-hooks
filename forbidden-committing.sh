@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script is a pre-commit hook that checks if the commit message contains
+# This script is a pre-commit hook that checks if any staged files contain
 # the string "FORBIDDEN-COMMITTING". If it does, the commit is aborted.
 
 set -e

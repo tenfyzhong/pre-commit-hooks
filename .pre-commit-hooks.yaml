@@ -38,5 +38,5 @@
   pass_filenames: false
   language: "script"
   always_run: true
-  description: 'checks if the commit message contains the string "FORBIDDEN-COMMITTING"'
+  description: 'checks if staged files contain the string "FORBIDDEN-COMMITTING"'
   stages: ['pre-commit']

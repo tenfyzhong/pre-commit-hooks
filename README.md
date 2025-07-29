@@ -58,4 +58,4 @@ Add this to your .pre-commit-config.yaml:
 
 ### `forbidden-committing`
 
-This script is a pre-commit hook that checks if the commit message contains the string "FORBIDDEN-COMMITTING". If it does, the commit is aborted.
+This script is a pre-commit hook that checks if any staged file's content contains the string "FORBIDDEN-COMMITTING". If it does, the commit is aborted.
