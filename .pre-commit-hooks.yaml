@@ -30,3 +30,10 @@
   always_run: true
   description: 'make target'
   stages: ['pre-push']
+- id: forbidden-committing
+  name: 'forbidden committing'
+  entry: forbidden-committing.sh
+  language: "script"
+  always_run: true
+  description: 'checks if the commit message contains the string "FORBIDDEN-COMMITTING"'
+  stages: ['pre-commit']
