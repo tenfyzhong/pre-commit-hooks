@@ -6,7 +6,7 @@
 set -e
 
 user=$(git config --get user.name)
-FORBIDDEN_STRING=" FORBIDDEN-COMMITTING $user "
+FORBIDDEN_STRING="FORBIDDEN-COMMITTING $user"
 
 if git diff --cached | grep -E '^\+' | grep -E -v '^\+\+\+' | grep -q "$FORBIDDEN_STRING"; then
     echo "Error: Your staged changes contain the forbidden string: '$FORBIDDEN_STRING'." >&2
