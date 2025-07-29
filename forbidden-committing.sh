@@ -5,11 +5,12 @@
 
 set -e
 
-FORBIDDEN_STRING="FORBIDDEN-COMMITTING"
+user=$(git config --get user.name)
+FORBIDDEN_STRING=" FORBIDDEN-COMMITTING $user "
 
-if git diff -U0 --cached | grep -q "$FORBIDDEN_STRING"; then
-    echo "Error: Your commit message contains the forbidden string: '$FORBIDDEN_STRING'." >&2
-    echo "Please remove this string from your commit message and try again." >&2
+if git diff --cached | grep '^\+' | grep -v '^\+\+\+' | grep -q "$FORBIDDEN_STRING"; then
+    echo "Error: Your staged changes contain the forbidden string: '$FORBIDDEN_STRING'." >&2
+    echo "Please remove this string from your staged files and try again." >&2
     exit 1
 fi
 
