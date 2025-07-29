@@ -7,6 +7,7 @@
 - id: check-commit-user-name-email
   name: 'check the commit user name and email'
   entry: check-commit-user-name-email.sh
+  pass_filenames: false
   files: '^$'
   language: "script"
   always_run: true
@@ -19,6 +20,7 @@
 - id: post-commit-to-sqlite3
   name: 'post commit message to sqlite3'
   entry: post-commit-to-sqlite3.sh
+  pass_filenames: false
   language: "script"
   always_run: true
   description: 'post commit message to sqlite3'
@@ -26,13 +28,14 @@
 - id: make-target
   name: 'make target'
   entry: make-target.sh
+  pass_filenames: false
   language: "script"
   always_run: true
   description: 'make target'
-  stages: ['pre-push']
 - id: forbidden-committing
   name: 'forbidden committing'
   entry: forbidden-committing.sh
+  pass_filenames: false
   language: "script"
   always_run: true
   description: 'checks if the commit message contains the string "FORBIDDEN-COMMITTING"'
