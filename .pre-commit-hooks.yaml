@@ -8,7 +8,6 @@
   name: 'check the commit user name and email'
   entry: check-commit-user-name-email.sh
   pass_filenames: false
-  files: '^$'
   language: "script"
   always_run: true
   description: 'check the commit user name and email match the origin or not'
