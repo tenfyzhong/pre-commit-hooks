@@ -6,6 +6,6 @@ _root=$(git rev-parse --show-toplevel)
 cd "$_root" || exit 1
 
 exec 1>&2
-fish -c todo >&2
+fish -c todo
 
 cd "$_cwd" || exit 1
