@@ -40,3 +40,11 @@
   always_run: true
   description: 'checks if staged files contain the string "FORBIDDEN-COMMITTING"'
   stages: ['pre-commit']
+- id: check-dco
+  name: 'check DCO'
+  entry: check-dco.sh
+  pass_filenames: true
+  language: "script"
+  always_run: true
+  description: 'check if the commiting is signed with DCO'
+  stages: ['commit-msg']
