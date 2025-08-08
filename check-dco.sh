@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ -f "$(git rev-parse --git-dir)/MERGE_HEAD" ]; then
+    exit 0
+fi
+
 if [ -z "$1" ]; then
     echo "Missing commit message file" >&2
     exit 1
