@@ -48,3 +48,11 @@
   always_run: true
   description: 'check if the commiting is signed with DCO'
   stages: ['commit-msg']
+- id: forbidden-push-remote
+  name: 'forbidden push to remote'
+  entry: forbidden-push-remote.sh
+  pass_filenames: false
+  language: "script"
+  always_run: true
+  description: 'forbidden push to remote which contains some special string'
+  stages: ['pre-push']
