@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -z "$*" ]; then
+if [ $# -eq 0 ]; then
     echo "Error: No forbidden remote URL parts specified for this hook." >&2
     exit 1
 fi
