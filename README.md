@@ -10,7 +10,7 @@ Add this to you .pre-commit-config.yaml
 
 ```yaml
 -   repo: https://github.com/tenfyzhong/pre-commit-hooks
-    rev: 0.1.0  # Use the ref you want to point at
+    rev: 0.2.0  # Use the ref you want to point at
     hooks:
     -   id: forbid-swap-file
     # -   id: ...
@@ -50,7 +50,7 @@ Add this to your .pre-commit-config.yaml:
 
 ```yaml
 -   repo: https://github.com/tenfyzhong/pre-commit-hooks
-    rev: 0.1.0
+    rev: 0.2.0
     hooks:
     -   id: make-target
         args: ['lint', 'test']  # The make targets you want to run
@@ -64,3 +64,17 @@ This script is a pre-commit hook that checks if any staged file's content contai
 
 Check if the commit message is signed with DCO.
 To sign a commit, use `git commit -s`.
+
+### `forbidden-push-remote`
+
+Prevent pushing to a remote that contains a specific string in its URL.
+This is useful to prevent accidental pushes to upstream repositories.
+Add this to your .pre-commit-config.yaml:
+
+```yaml
+-   repo: https://github.com/tenfyzhong/pre-commit-hooks
+    rev: 0.3.1 # Use the ref you want to point at
+    hooks:
+    -   id: forbidden-push-remote
+        args: ['github.com/some-org/']  # The string to forbid in the remote URL
+```
