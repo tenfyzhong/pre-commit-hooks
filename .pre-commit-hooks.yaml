@@ -1,58 +1,58 @@
 - id: forbid-swap-file
-  name: 'forbid to commit swap file'
+  name: "forbid to commit swap file"
   entry: forbid-swap-file.sh
   files: '^\..*\.sw[a-zA-Z]$'
   language: "script"
-  description: 'forbid to commit swap file, such as .foo.swp'
+  description: "forbid to commit swap file, such as .foo.swp"
 - id: check-commit-user-name-email
-  name: 'check the commit user name and email'
+  name: "check the commit user name and email"
   entry: check-commit-user-name-email.sh
   pass_filenames: false
-  files: '^$'
+  files: "^$"
   language: "script"
   always_run: true
-  description: 'check the commit user name and email match the origin or not'
+  description: "check the commit user name and email match the origin or not"
 - id: forbid-binary
-  name: 'forbid to commit binary file'
+  name: "forbid to commit binary file"
   entry: forbid-binary.sh
   language: script
-  types: ['binary']
+  types: ["binary"]
 - id: post-commit-to-sqlite3
-  name: 'post commit message to sqlite3'
+  name: "post commit message to sqlite3"
   entry: post-commit-to-sqlite3.sh
   pass_filenames: false
   language: "script"
   always_run: true
-  description: 'post commit message to sqlite3'
-  stages: ['post-commit']
+  description: "post commit message to sqlite3"
+  stages: ["post-commit"]
 - id: make-target
-  name: 'make target'
+  name: "make target"
   entry: make-target.sh
   pass_filenames: false
   language: "script"
   always_run: true
-  description: 'make target'
+  description: "make target"
 - id: forbidden-committing
-  name: 'forbidden committing'
+  name: "forbidden committing"
   entry: forbidden-committing.sh
   pass_filenames: false
   language: "script"
   always_run: true
   description: 'checks if staged files contain the string "FORBIDDEN-COMMITTING"'
-  stages: ['pre-commit']
+  stages: ["pre-commit"]
 - id: check-dco
-  name: 'check DCO'
+  name: "check DCO"
   entry: check-dco.sh
   pass_filenames: true
   language: "script"
   always_run: true
-  description: 'check if the commiting is signed with DCO'
-  stages: ['commit-msg']
+  description: "check if the commiting is signed with DCO"
+  stages: ["commit-msg"]
 - id: forbidden-push-remote
-  name: 'forbidden push to remote'
+  name: "forbidden push to remote"
   entry: forbidden-push-remote.sh
   pass_filenames: false
   language: "script"
   always_run: true
-  description: 'forbidden push to remote which contains some special string'
-  stages: ['pre-push']
+  description: "Forbids pushing to a remote whose URL contains a specific string"
+  stages: ["pre-push"]
