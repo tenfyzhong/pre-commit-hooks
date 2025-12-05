@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-if [ -f "$(git rev-parse --git-dir)/MERGE_HEAD" ]; then
+git_dir=$(git rev-parse --git-dir)
+
+# Skip DCO check for merge, cherry-pick, and rebase operations
+if [ -f "$git_dir/MERGE_HEAD" ] || \
+   [ -f "$git_dir/CHERRY_PICK_HEAD" ] || \
+   [ -f "$git_dir/REBASE_HEAD" ] || \
+   [ -d "$git_dir/rebase-apply" ] || \
+   [ -d "$git_dir/rebase-merge" ]; then
     exit 0
 fi
 
