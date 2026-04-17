@@ -69,6 +69,7 @@ To sign a commit, use `git commit -s`.
 
 Prevent pushing to a remote that contains a specific string in its URL.
 This is useful to prevent accidental pushes to upstream repositories.
+When the `git push` command explicitly targets the current remote, this hook skips the check.
 Add this to your .pre-commit-config.yaml:
 
 ```yaml
